@@ -1,0 +1,29 @@
+# mqtt broker 地址
+server: ws://127.0.0.1:9001
+
+qos: 1
+# 消息保留
+retained: false
+clientID: "1"
+username: ""
+password: ""
+
+# 断开客户端连接的停顿时间
+disconnect_quiesce: 250
+
+# 连接认证
+auth:
+  username: ""
+  password: ""
+
+
+# 日志
+log:
+  writers: file,stdout
+  logger_level: DEBUG
+  logger_file: log/apiserver.log
+  log_format_test: false
+  rolling_policy: size
+  log_rotate_date: 1
+  log_rotate_size: 1024
+  log_backup_count: 7
