@@ -5,6 +5,7 @@ import (
 	"mqttserver/config"
 	"mqttserver/router"
 	"os"
+	"os/signal"
 
 	MQTT "github.com/eclipse/paho.mqtt.golang"
 	"github.com/lexkong/log"
@@ -19,6 +20,7 @@ var (
 func main() {
 
 	c := make(chan os.Signal, 1)
+	signal.Notify(c)
 
 	pflag.Parse()
 
@@ -55,5 +57,6 @@ func main() {
 
 	defer client.Disconnect(uint(viper.GetInt("disconnect_quiesce")))
 
-	<-c
+	s := <-c
+	log.Infof("quit by %v", s)
 }
