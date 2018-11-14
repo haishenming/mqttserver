@@ -15,11 +15,13 @@ type MQTTClient struct {
 	MQTT.Client
 }
 
-func Init(options *MQTT.ClientOptions) error {
+func Init(options *MQTT.ClientOptions) {
 	Client = MQTTClient{
 		MQTT.NewClient(options),
 	}
-	
+}
+
+func Connect() error {
 	if token := Client.Connect(); token.Wait() && token.Error() != nil {
 		return token.Error()
 	}

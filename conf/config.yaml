@@ -4,7 +4,7 @@ server: ws://127.0.0.1:9001
 qos: 1
 # 消息保留
 retained: false
-clientID: "1"
+clientID: "1111"
 username: ""
 password: ""
 

@@ -80,5 +80,4 @@ func (c *Config) watchConfig() {
 	viper.OnConfigChange(func(e fsnotify.Event) {
 		log.Infof("Config file changed: %s", e.Name)
 	})
-
 }
